@@ -1,4 +1,4 @@
-package com.debduttapanda.biometricauth.ui.theme
+package com.nortohol.biometricauth.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

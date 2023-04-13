@@ -1,39 +1,13 @@
-package com.debduttapanda.biometricauth
+package com.nortohol.biometricauth
 
-import android.app.Activity
 import android.content.Context
 import android.os.Build
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
-//import android.hardware.biometrics.BiometricPrompt
-import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
-import java.util.concurrent.Executor
 
 object Biometric {
-    fun statusName(con: Context): String{
-        val biometricManager = BiometricManager.from(con)
-        var result = 0
-        result = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            biometricManager.canAuthenticate(BiometricManager.Authenticators.DEVICE_CREDENTIAL or BiometricManager.Authenticators.BIOMETRIC_STRONG)
-
-        } else {
-            biometricManager.canAuthenticate()
-        }
-        return when (result) {
-            BiometricManager.BIOMETRIC_SUCCESS -> "BIOMETRIC_SUCCESS"
-            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> "BIOMETRIC_ERROR_NO_HARDWARE"
-            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> "BIOMETRIC_ERROR_HW_UNAVAILABLE"
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> "BIOMETRIC_ERROR_NONE_ENROLLED"
-            BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> "BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED"
-            BiometricManager.BIOMETRIC_ERROR_UNSUPPORTED -> "BIOMETRIC_ERROR_UNSUPPORTED"
-            BiometricManager.BIOMETRIC_STATUS_UNKNOWN -> "BIOMETRIC_STATUS_UNKNOWN"
-            else -> {""}
-        }
-    }
     fun status(con: Context): Boolean {
         var result = false
         val biometricManager = BiometricManager.from(con)
@@ -67,6 +41,7 @@ object Biometric {
         }
         return result
     }
+
     fun authenticate(
         activity: FragmentActivity,
         title: String,
@@ -107,6 +82,5 @@ object Biometric {
             .setNegativeButtonText(negativeText)
             .build()
         biometricPrompt.authenticate(promptInfo)
-
     }
 }

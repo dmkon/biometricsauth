@@ -1,4 +1,4 @@
-package com.debduttapanda.biometricauth.ui.theme
+package com.nortohol.biometricauth.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

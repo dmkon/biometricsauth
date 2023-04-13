@@ -1,4 +1,4 @@
-package com.debduttapanda.biometricauth
+package com.nortohol.biometricauth
 
 import org.junit.Test
 
